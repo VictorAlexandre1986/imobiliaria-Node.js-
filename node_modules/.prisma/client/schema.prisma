@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Proprietario {
+  id             Int       @id @default(autoincrement())
+  nome           String
+  cpf            String
+  email          String    @unique
+  telefone       String?
+  imovel         Imovel[]   
+}
+
+model Imovel {
+  id             Int       @id @default(autoincrement())
+  endereco       String
+  numero         String
+  bairro         String
+  cidade         String
+  preco          Float
+  descricao      String?
+  alugado        Boolean
+  proprietario   Proprietario @relation(fields: [proprietarioId], references: [id])
+  proprietarioId Int
+}
+
+
+
+model Cliente {
+  id           Int        @id @default(autoincrement())
+  nome         String
+  cpf          String
+  email        String     @unique
+  telefone     String?
+  contrato     Contrato[]    //No relacionamento de um para muitos é necessário passar um array
+}
+model Pagamento {
+  id             Int        @id @default(autoincrement())
+  contrato       Contrato?  
+  data_venc      DateTime
+  valor          Float
+  
+}
+
+model Contrato {
+  id            Int        @id @default(autoincrement())
+  id_cliente    Int
+  id_imovel     Int
+  valor         Float
+  cliente       Cliente    @relation(fields: [clienteId], references: [id]) // Relacionamento com a tabela de clientes
+  clienteId     Int        
+  pagamento     Pagamento? @relation(fields: [pagamentoId], references: [id])
+  pagamentoId   Int  @unique  //Relacionamento de um para um precisa ser unique
+}
+
+

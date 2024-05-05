@@ -1,0 +1,23 @@
+{
+  "name": "imobiliaria",
+  "version": "1.0.0",
+  "description": "Sistema ERP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Gerenciamento",
+    "ERP",
+    "Imobiliaria"
+  ],
+  "author": "Victor Alexandre",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "prisma": "^5.13.0",
+    "sqlite3": "^5.1.7"
+  }
+}
