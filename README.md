@@ -10,7 +10,7 @@
   <li>Prisma</li>
 </ul>
 
-## Como acessar o app? Primeiro é precisao instalar as dependencias vá até a pasta do projeto e digite o comando :
+## Como acessar o app? Primeiro é precisa instalar as dependencias, vá até a pasta do projeto e digite o comando :
 ```
 npm install
 ```
