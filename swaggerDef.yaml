@@ -1,0 +1,359 @@
+openapi: "3.0.0"
+info:
+  title: "API da Minha Imobiliária"
+  description: "Documentação da API para gerenciar imóveis, clientes, contratos e pagamentos"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:3000"
+paths:
+  /clientes:
+    get:
+      summary: "Lista todos os clientes"
+      responses:
+        '200':
+          description: "Lista de clientes"
+    post:
+      summary: "Cria um novo cliente"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Cliente"
+      responses:
+        '201':
+          description: "Cliente criado com sucesso"
+        '400':
+          description: "Erro na requisição"
+  /clientes/{id}:
+    get:
+      summary: "Busca um cliente pelo ID"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do cliente a ser buscado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Cliente encontrado"
+        '404':
+          description: "Cliente não encontrado"
+    put:
+      summary: "Atualiza um cliente existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do cliente a ser atualizado"
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Cliente"
+      responses:
+        '200':
+          description: "Cliente atualizado com sucesso"
+        '404':
+          description: "Cliente não encontrado"
+    delete:
+      summary: "Deleta um cliente existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do cliente a ser deletado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Cliente deletado com sucesso"
+        '404':
+          description: "Cliente não encontrado"
+
+
+  /proprietarios:
+    get:
+      summary: "Lista todos os proprietários"
+      responses:
+        '200':
+          description: "Lista de proprietários"
+    post:
+      summary: "Cria um novo proprietário"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Proprietario"
+      responses:
+        '201':
+          description: "Proprietário criado com sucesso"
+        '400':
+          description: "Erro na requisição"
+  /proprietarios/{id}:
+    get:
+      summary: "Busca um proprietário pelo ID"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do proprietário a ser buscado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Proprietário encontrado"
+        '404':
+          description: "Proprietário não encontrado"
+    put:
+      summary: "Atualiza um proprietário existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do proprietário a ser atualizado"
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Proprietario"
+      responses:
+        '200':
+          description: "Proprietário atualizado com sucesso"
+        '404':
+          description: "Proprietário não encontrado"
+    delete:
+      summary: "Deleta um proprietário existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do proprietário a ser deletado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Proprietário deletado com sucesso"
+        '404':
+          description: "Proprietário não encontrado"
+  
+  /contratos:
+    get:
+      summary: "Lista todos os contratos"
+      responses:
+        '200':
+          description: "Lista de contratos"
+    post:
+      summary: "Cria um novo contrato"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Contrato"
+      responses:
+        '201':
+          description: "Contrato criado com sucesso"
+        '400':
+          description: "Erro na requisição"
+  /contratos/{id}:
+    get:
+      summary: "Busca um contrato pelo ID"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do contrato a ser buscado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Contrato encontrado"
+        '404':
+          description: "Contrato não encontrado"
+    put:
+      summary: "Atualiza um contrato existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do contrato a ser atualizado"
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Contrato"
+      responses:
+        '200':
+          description: "Contrato atualizado com sucesso"
+        '404':
+          description: "Contrato não encontrado"
+    delete:
+      summary: "Deleta um contrato existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do contrato a ser deletado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Contrato deletado com sucesso"
+        '404':
+          description: "Contrato não encontrado"
+  /imovel:
+    get:
+      summary: "Lista todos os imóveis"
+      responses:
+        '200':
+          description: "Lista de imóveis"
+    post:
+      summary: "Cria um novo imóvel"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+      responses:
+        '201':
+          description: "Contrato criado com sucesso"
+        '400':
+          description: "Erro na requisição"
+  /imovel/{id}:
+    get:
+      summary: "Busca um imóvel pelo ID"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do imóvel a ser buscado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Imóvel encontrado"
+        '404':
+          description: "Imóvel não encontrado"
+    put:
+      summary: "Atualiza um imóvel existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do imóvel a ser atualizado"
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+      responses:
+        '200':
+          description: "Imóvel atualizado com sucesso"
+        '404':
+          description: "Imóvel não encontrado"
+    delete:
+      summary: "Deleta um imóvel existente"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: "ID do imóvel a ser deletado"
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "Imóvel deletado com sucesso"
+        '404':
+          description: "Imóvel não encontrado"
+  components:
+  schemas:
+    Contrato:
+      type: object
+      properties:
+        id:
+          type: integer
+        id_cliente:
+          type: integer
+        id_imovel:
+          type: integer
+        valor:
+          type: number
+        cliente:
+          $ref: "#/components/schemas/Cliente"
+        pagamento:
+          $ref: "#/components/schemas/Pagamento"
+    Proprietario:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        cpf:
+          type: string
+        email:
+          type: string
+        telefone:
+          type: string
+    Cliente:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        cpf:
+          type: string
+        email:
+          type: string
+        telefone:
+          type: string
+    Imovel:
+      type: object
+      properties:
+        id:
+          type: integer
+        endereco:
+          type: string
+        numero:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        preco:
+          type: number
+        descricao:
+          type: string
+        alugado:
+          type: boolean
+        proprietarioId:
+          type: integer

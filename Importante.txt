@@ -1,0 +1,1 @@
+Deletar o arquivo node_modules e dar um commit para remover do commit inicial a pasta node modules

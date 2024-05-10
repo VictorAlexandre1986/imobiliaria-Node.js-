@@ -39,6 +39,7 @@ model Cliente {
   telefone     String?
   contrato     Contrato[]    //No relacionamento de um para muitos é necessário passar um array
 }
+
 model Pagamento {
   id             Int        @id @default(autoincrement())
   contrato       Contrato?  
