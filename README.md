@@ -19,3 +19,9 @@ npm install
 ```
 node start
 ```
+
+## Caso seja feita uma alteração no model, digite:
+
+```
+npx prisma migrate dev
+```
