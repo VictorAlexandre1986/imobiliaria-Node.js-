@@ -15,12 +15,12 @@
 npm install
 ```
 
-## Depois de instalar para executar basta digitar:
+## Depois de instalar ps pacotes ,para executar o projeto basta digitar:
 ```
 node start
 ```
 
-## Caso seja feita uma alteração no model, digite:
+## Caso seja feita uma alteração no model, é preciso fazer um migrate para mudar no banco fisico, digite:
 
 ```
 npx prisma migrate dev
